@@ -12,21 +12,19 @@ public class duplicates {
                 return true;
             }
             if (array[index] < key && index < last) {
-// The index position holds something that is less than
-// what we're looking for, what is the first possible page?
+
                 first = index +1 ;
 
                 continue;
             }
             if (array[index] > key && index > first) {
-// The index position holds something that is larger than
-// what we're looking for, what is the last possible page?
+
                 last = index-1;
                 continue;
             }
             break;
         }
-        // Why do we land here? What shoudl we do?
+     
 
         return false;
 
