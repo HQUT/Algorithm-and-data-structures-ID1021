@@ -26,10 +26,9 @@ public class Buckets {
     }
 
     public Buckets(String file, int mod) {
-        this.mod = mod; // save the modulo so that it can be used between methods
-        data = new Node[mod]; // make the data array that will hold the nodes the size of modulo that will be
-        // used to hash the keys.
-        this.keys = new int[9676];// the csv file is 9,675 lines
+        this.mod = mod; 
+        data = new Node[mod]; 
+        this.keys = new int[9676];
         try (BufferedReader br = new BufferedReader(new InputStreamReader(
                 new FileInputStream(file), StandardCharsets.UTF_8))) {
             String line;
@@ -39,25 +38,23 @@ public class Buckets {
                 String[] row = line.split(",");
                 code = Integer.parseInt(row[0].replaceAll("\\s", ""));
                 insert(code, new Node(code, row[1], Integer.valueOf(row[2])));
-                // row[0] is code, row[1] is name and row[2] is population
                 this.keys[i++] = code;
 
             }
-            max = i - 1; // max is number of zip nodes
+            max = i - 1; 
         } catch (Exception e) {
             System.out.println(" file " + file + " not found");
         }
     }
 
     private void insert(Integer code, Node entry) {
-        Integer key = code % this.mod; // convert the zip code to a simple hash using modulo
+        Integer key = code % this.mod; 
         Node current = this.data[key];
         Node prev = null;
 
-        while (current != null) {// if there already is a node placed at the hash index we check if they are the
-            // same and if they are we replace the found entry
+        while (current != null) {
             if (code.equals(current.code)) {
-                current = current.next; // replace the found entry
+                current = current.next; 
                 break;
             }
             prev = current;
@@ -130,7 +127,7 @@ public class Buckets {
 
             if (store.add(keys[i] % this.mod) == false) {
                 count++;
-                // System.out.println("Duplicate element found : " + keys[i]);
+               
             }
         }
         return count;
@@ -138,18 +135,11 @@ public class Buckets {
 
     public static void main(String[] args) {
         int mod = 11000;
-        // 31327 8961 688 25 0 0 0 0 0 0 0. 714 collisions
-        // 28627 8878 770 26 0 0 0 0 0 0 0
-        // 27773 8820 841 13 0 0 0 0 0 0 0
+       
         Buckets hash = new Buckets("/Users/hibaqutbuddinhabib/IdeaProjects/hashTabel/src/postnummer.csv", mod);
         hash.countStepsInLookup();
-        // System.out.println("number of collisions for mod=" + mod + " is " +
-       // hash.nrOfCollisions());
-
-        // hash.collisions(mod);
 
         int k = 1000;
-        // warm up so that we hopefully get better benchmark results
         for (int i = 0; i < k; i++) {
             hash.lookup(11115);
         }
@@ -160,8 +150,6 @@ public class Buckets {
         }
         long timeStop = System.nanoTime();
         System.out.println("Lookup 111 15: " + hash.lookup(11115) + (timeStop - timeStart) / k + "ns");
-
-        // warm up so that we hopefully get better benchmark results
         for (int i = 0; i < k; i++) {
             hash.lookup(98499);
         }
