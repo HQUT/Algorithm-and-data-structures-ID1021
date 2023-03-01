@@ -173,21 +173,11 @@ public class binaryTree {
         System.out.printf("%8.5f\n" , t);
         System.out.printf("%8.5f\n" , t2);
         System.out.printf("%8.5f\n" , t3);
-        //tree.root.inOrder();
+      
 
 
 
-       /* binaryTree Tree =new binaryTree();
-        TreeIterator iterator = new TreeIterator(Tree);
-        Tree.add(5,105);
-        Tree.add(2,102);
-        Tree.add(7,107);
-        Tree.add(1,101);
-        Tree.add(8,108);
-        Tree.add(6,106);
-        Tree.add(3,103);
-        for (int i : Tree)
-            System.out.println("next value " + i);*/
+       
     }
 
 }
