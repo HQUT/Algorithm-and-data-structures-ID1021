@@ -4,22 +4,22 @@ import java.util.Random;
 
 public class bin_sök {
         public static void commonElement(int[] array1, int[] array2) {
-            int index1 = 0;       //index 1 och 2 är positionen i första och andra array
+            int index1 = 0;       
             int index2 = 0;
 
             while (index2 < array2.length && index1 < array1.length) {
-                int left1 = 0, right1 = (array1.length)-1;     //Första och sista position i array1
+                int left1 = 0, right1 = (array1.length)-1;     
                 while (left1 <= right1) {
                     int mid1 = (left1 + right1)/2;
                     if (array2[index2] == array1[mid1]) {
                         System.out.print( " common element is " + array1[mid1] );
                         break;
                     } else if (array2[index2] > array1[mid1])
-                        left1 = mid1 + 1;                 //flytta ett steg vänster eller höger
+                        left1 = mid1 + 1;                 
                     else right1 = mid1 - 1;
                 }
 
-                index2++;  //Flytta till nästa index i array2
+                index2++;  
             }
         }
 
