@@ -5,9 +5,9 @@ public class no_efficient {
 
         //int length=array.length;
         for (int i = 1; i < array.length - 1; i++) {
-// let's set the first candidate to the index itself
+
             int cand = i;
-            //array[i] = array[cand];
+        
 
             for (int j = 0 ; j < array.length; j++) {
                 // If the element at position j is smaller than the value
