@@ -87,22 +87,14 @@ public class heap_array {
         double tr=0;
        heap_array heap = new heap_array(k);
         Random rnd = new Random();
-       // for(int j=0;j<100;j++) {
+      
             for (int i = 0; i < (k*100); i++) {
-               // long t2 = System.nanoTime();
+              
                 heap.insert(rnd.nextInt(1000));
-                //long t3 = System.nanoTime();
-               // double t4 = (t3 - t2);
-                //ti += t4;
+               
             }
 
-     /*   for(int j=0;j<1000;j++) {
-        long t2 = System.nanoTime();
-            heap.build_heap();
-            long t3 = System.nanoTime();
-            double t4 = (t3 - t2);
-            ti += t4;
-        }*/
+   
         heap.build_heap();
         System.out.println("The Heap is : " + Arrays.toString(heap.arr));
         heap.printHeap();
