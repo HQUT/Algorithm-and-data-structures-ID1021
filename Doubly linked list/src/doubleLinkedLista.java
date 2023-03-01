@@ -75,33 +75,7 @@ public class doubleLinkedLista {
         actual.next = null;
         size--;
     }
-    /*public void removeAt(int index){
-        if (head == null)
-            return;
-        if (index<0 || index >size)
-        return;
-
-        nod actual= head;
-        int i = 1;
-        while (i< index){
-            actual = actual.next;
-            i++;
-        }
-        if( actual.next == null){
-            actual.previous.next = null;
-        }
-        else if(actual.previous == null){
-            actual = actual.next;
-            actual.previous = null;
-            head = actual;
-        }
-        else{
-            actual.previous.next = actual.next;
-            actual.next.previous = actual.previous;
-        }
-        size--;
-
-    }*/
+    
     public void removeAt(int value) {
 
         if (isEmpty())
@@ -176,9 +150,7 @@ public class doubleLinkedLista {
             dll.removeAt(index);
            System.out.println("\nEfter remove objekt at position: "+index);
           dll.dispaly();
-           // dll.addFront(s);
-           //System.out.println("\nEfter adding back the objekt  ");
-           // dll.dispaly();
+         
 
             long t1 = System.nanoTime();
             double t_access = (t1 - t0);
