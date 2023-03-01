@@ -330,7 +330,6 @@ public class T9 {
         {
             char[] cc = numberToChar(sequence.charAt(i));
             System.arraycopy(cc, 0, outcomes[i], 0, cc.length);
-          // System.out.println(outcomes[i]);
             System.out.println(cc);
         }
         recursiveSearch(outcomes, 0, root, "");
@@ -391,28 +390,16 @@ public class T9 {
 
     static boolean searchRecursively(Node itr, char[] str, int i, int len)
     {
-        // When a string or any character
-        // of a string is not found
         if (itr == null)
             return false;
-
-        // Condition of finding string successfully
         if (itr.word == true && i == len - 1)
         {
-
-            // Return true when endOfWord
-            // of last node containes true
             return true;
         }
 
         int index = str[i] - 'a';
-
-        // Recursive call and return
-        // value of function call stack
         return searchRecursively(itr.next[index], str, i + 1, len);
     }
-
-    // Function call to search the string
     static void search(Node root, String str)
     {
         char[] arr = new char[str.length() + 1];
@@ -420,7 +407,6 @@ public class T9 {
         {
             arr[i] = str.charAt(i);
         }
-        // If string found
         if (searchRecursively(root, arr, 0, str.length() + 1))
             System.out.println("found");
 
